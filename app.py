@@ -5,14 +5,19 @@ import json
 # --- CONFIGURACIÓN DE LA IA (Versión Ultra-Compatible) ---
 API_KEY = "AIzaSyAqJ0V6oePMCvjmuUHii_YM1FQ2qBHMolA"
 
-# Configuramos la conexión forzando la versión estable 'v1'
-genai.configure(api_key=API_KEY, transport='rest')
+# --- CONFIGURACIÓN DE CONEXIÓN MANUAL ---
+API_KEY = "AIzaSyAqJ0V6oePMCvjmuUHii_YM1FQ2qBHMolA"
 
-# Definimos el modelo asegurando la compatibilidad
-# Definimos el modelo de forma simple y directa
-model = genai.GenerativeModel(
-    model_name='gemini-1.5-flash'
-)
+# Forzamos la configuración para que NO busque la versión beta
+genai.configure(api_key=API_KEY)
+
+# Creamos el modelo de forma estándar
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+# --- ESTA ES LA LÍNEA MÁGICA ---
+# Forzamos al cliente a usar la versión 'v1' estable global
+from google.generativeai import client
+client.DEFAULT_API_VERSION = 'v1'
 
 # --- CONFIGURACIÓN VISUAL ---
 st.set_page_config(page_title="Asistente Front Claro", page_icon="📡", layout="wide")
