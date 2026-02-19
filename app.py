@@ -9,9 +9,9 @@ API_KEY = "AIzaSyAqJ0V6oePMCvjmuUHii_YM1FQ2qBHMolA"
 genai.configure(api_key=API_KEY, transport='rest')
 
 # Definimos el modelo asegurando la compatibilidad
+# Definimos el modelo de forma simple y directa
 model = genai.GenerativeModel(
-    model_name='gemini-1.5-flash',
-    generation_config={"tools": []} # Esto evita que busque funciones extra que causan el 404
+    model_name='gemini-1.5-flash'
 )
 
 # --- CONFIGURACIÓN VISUAL ---
