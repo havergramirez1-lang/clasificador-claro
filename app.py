@@ -6,7 +6,7 @@ import json
 # Reemplaza 'TU_API_KEY_AQUI' con la llave que obtuviste en el Paso 1
 API_KEY = "AIzaSyAqJ0V6oePMCvjmuUHii_YM1FQ2qBHMolA"
 genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 # --- CONFIGURACIÓN VISUAL ---
 st.set_page_config(page_title="Asistente Front Claro", page_icon="📡", layout="wide")
