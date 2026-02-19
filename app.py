@@ -17,7 +17,7 @@ st.markdown("""
     .stButton>button { width: 100%; background-color: #ef3340; color: white; border-radius: 10px; }
     .result-card { padding: 20px; border-radius: 15px; border-left: 10px solid #ef3340; background-color: white; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
     </style>
-    """, unsafe_layout_encoding=True)
+    """, unsafe_allow_html=True)
 
 st.title("📡 Clasificador Inteligente de Casos - Front CLARO")
 st.info("Pega la descripción del requerimiento del cliente para determinar el escalamiento.")
