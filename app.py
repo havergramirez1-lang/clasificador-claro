@@ -2,14 +2,17 @@ import streamlit as st
 import google.generativeai as genai
 import json
 
-# --- CONFIGURACIÓN DE LA IA ---
+# --- CONFIGURACIÓN DE LA IA (Versión Ultra-Compatible) ---
 API_KEY = "AIzaSyAqJ0V6oePMCvjmuUHii_YM1FQ2qBHMolA"
 
-# Esta línea es la CLAVE: fuerza el transporte por REST para evitar el error 404
+# Configuramos la conexión forzando la versión estable 'v1'
 genai.configure(api_key=API_KEY, transport='rest')
 
-# Usamos este nombre de modelo que es el más estable actualmente
-model = genai.GenerativeModel('gemini-1.5-flash')
+# Definimos el modelo asegurando la compatibilidad
+model = genai.GenerativeModel(
+    model_name='gemini-1.5-flash',
+    generation_config={"tools": []} # Esto evita que busque funciones extra que causan el 404
+)
 
 # --- CONFIGURACIÓN VISUAL ---
 st.set_page_config(page_title="Asistente Front Claro", page_icon="📡", layout="wide")
