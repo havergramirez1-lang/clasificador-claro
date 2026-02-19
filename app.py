@@ -5,10 +5,10 @@ import json
 # --- CONFIGURACIÓN DE LA IA ---
 API_KEY = "AIzaSyAqJ0V6oePMCvjmuUHii_YM1FQ2qBHMolA"
 
-# Forzamos el uso de la versión estable de la API v1
+# Esta línea es la CLAVE: fuerza el transporte por REST para evitar el error 404
 genai.configure(api_key=API_KEY, transport='rest')
 
-# Usamos el modelo flash-1.5 que es el más actualizado para soporte
+# Usamos este nombre de modelo que es el más estable actualmente
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # --- CONFIGURACIÓN VISUAL ---
