@@ -8,10 +8,14 @@ API_KEY = "AIzaSyAqJ0V6oePMCvjmuUHii_YM1FQ2qBHMolA"
 # --- CONFIGURACIÓN DE CONEXIÓN MANUAL ---
 API_KEY = "AIzaSyAqJ0V6oePMCvjmuUHii_YM1FQ2qBHMolA"
 
-# Forzamos la configuración para que NO busque la versión beta
-genai.configure(api_key=API_KEY)
+# 1. Forzamos la configuración base
+genai.configure(api_key=API_KEY, transport='rest')
 
-# Creamos el modelo de forma estándar
+# 2. ESTA ES LA LÍNEA MÁGICA: Obligamos a usar la versión 'v1' estable
+from google.generativeai import client
+client.DEFAULT_API_VERSION = 'v1'
+
+# 3. Creamos el modelo de forma estándar
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # --- ESTA ES LA LÍNEA MÁGICA ---
